@@ -7,8 +7,7 @@
     "tokenRef": "GH_TOKEN"
   },
   "npm": {
-    "publish": true,
-    "skipChecks": true
+    "publish": true
   },
   "hooks": {
     "after:bump": "npm run build && npm run docs:gen",
