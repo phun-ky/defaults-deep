@@ -13,6 +13,9 @@ Similar to lodash's defaultsDeep, but without mutating the source object, and no
   - [Table of Contents- defaults-deep](#table-of-contents--defaults-deep)
   - [Installation](#installation)
   - [Usage](#usage)
+    - [ESM](#esm)
+    - [CommonJS](#commonjs)
+  - [API](#api)
     - [Parameters](#parameters)
     - [Returns](#returns)
     - [Examples](#examples)
@@ -27,11 +30,25 @@ Similar to lodash's defaultsDeep, but without mutating the source object, and no
 
 Install the package via `npm`:
 
-```
+```bash
 npm i --save @phun-ky/defaults-deep
 ```
 
 ## Usage
+
+### ESM
+
+```bash
+import defaultsDeep from "@phun-ky/defaults-deep";
+```
+
+### CommonJS
+
+```
+const defaultsDeep = require("@phun-ky/defaults-deep");
+```
+
+## API
 
 ```ts
 function defaultsDeep(...args): Record<PropertyKey, unknown>;

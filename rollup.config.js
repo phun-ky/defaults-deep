@@ -55,20 +55,24 @@ export default [
     input: 'src/main.ts',
     output: [
       {
-        name: 'defaults-deep',
         file: './dist/defaults-deep.js',
         format: 'esm',
         sourcemap: true,
+        banner
+      },
+      {
+        file: './dist/defaults-deep.cjs',
+        format: 'cjs',
+        sourcemap: true,
         banner,
-        exports: 'named',
-        assetFileNames: '[name][extname]'
+        exports: 'default'
       }
     ],
     plugins: [
       nodeResolve(),
       ts({
         useTsconfigDeclarationDir: true,
-        sourceMap: false,
+        sourceMap: true,
         typescript
       }),
       terser()

@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "description": "Like lodash's _.defaultsDeep, but with array preservation",
   "type": "module",
-  "main": "dist/defaults-deep.js",
-  "types": "dist/defaults-deep.d.ts",
+  "main": "./dist/defaults-deep.cjs",
+  "module": "./dist/defaults-deep.js",
+  "types": "./dist/defaults-deep.d.ts",
   "files": [
     "/dist/defaults-deep.js",
     "/dist/defaults-deep.js.map",
+    "/dist/defaults-deep.cjs",
+    "/dist/defaults-deep.cjs.map",
     "/dist/defaults-deep.d.ts"
   ],
   "exports": {
     ".": {
       "types": "./dist/defaults-deep.d.ts",
-      "default": "./dist/defaults-deep.js"
+      "import": "./dist/defaults-deep.js",
+      "require": "./dist/defaults-deep.cjs"
     }
   },
   "scripts": {
