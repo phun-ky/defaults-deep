@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.2](https://github.com/phun-ky/defaults-deep/compare/1.1.1...1.1.2) (2026-01-22)
+
+### Bug
+
+* Trying something ([e25157b](https://github.com/phun-ky/defaults-deep/commit/e25157b4b0fbc7d93aecf82337152b832e8e7502))
+
 ## [1.1.1](https://github.com/phun-ky/defaults-deep/compare/1.1.0...1.1.1) (2026-01-22)
 
 ### Tasks
