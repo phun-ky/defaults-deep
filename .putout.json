@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "return/remove-useless  ": "off",
+    "remove-unused-variables": "off",
+    "remove-empty/import": "off",
+    "regexp/optimize": "off",
+    "conditions/remove-zero": "off",
+    "convert-to-arrow-function": "off",
+    "conditions/apply-consistent-blocks": "off",
+    "remove-empty/export": "off",
+    "apply-overrides": "off"
+  },
+  "ignore": ["**/src/test", "**/__tests__"]
+}
