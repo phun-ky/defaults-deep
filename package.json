@@ -1,42 +1,162 @@
 {
-  "name": "@nodeutils/defaults-deep",
-  "version": "1.1.0",
+  "name": "@phun-ky/defaults-deep",
+  "version": "1.0.0",
   "description": "Like lodash's _.defaultsDeep, but with array preservation",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "babel src -d lib && node ./node_modules/istanbul/lib/cli.js cover ./test/test.js -x ./test/test.js",
-    "build": "babel src -d lib",
-    "coverage": "ws -p 8888 -d coverage/lcov-report/"
-  },
+  "type": "module",
+  "main": "./dist/defaults-deep.cjs",
+  "module": "./dist/defaults-deep.js",
+  "types": "./dist/defaults-deep.d.ts",
   "files": [
-    "lib"
+    "/dist/defaults-deep.js",
+    "/dist/defaults-deep.js.map",
+    "/dist/defaults-deep.cjs",
+    "/dist/defaults-deep.cjs.map",
+    "/dist/defaults-deep.d.ts"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/defaults-deep.d.ts",
+      "import": "./dist/defaults-deep.js",
+      "require": "./dist/defaults-deep.cjs"
+    }
+  },
+  "scripts": {
+    "build": "npm run clean && npm run rollup",
+    "clean": "rm -rf dist dts",
+    "commit": "npx git-cz",
+    "docs:gen": "node ./node_modules/.bin/typedoc",
+    "release": "npx release-it --ci",
+    "rollup": "rollup -c",
+    "prerollup:dev": "npm run clean",
+    "rollup:dev": "rollup -c -w",
+    "style:code": "npx putout src",
+    "style:format": "./node_modules/.bin/eslint -c ./eslint.config.mjs src/**/*.ts  --fix --no-warn-ignored && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
+    "style:lint": "./node_modules/.bin/eslint -c ./eslint.config.mjs src/**/*.ts --no-warn-ignored && ./node_modules/.bin/prettier --check src",
+    "test": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings\" \"./src/**/__tests__/**/*.[jt]s\"",
+    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
+    "test:ci": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings --experimental-test-coverage --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout\" \"./src/**/__tests__/**/*.[jt]s\""
+  },
+  "funding": "https://github.com/phun-ky/defaults-deep?sponsor=1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodeutils/defaults-deep.git"
+    "url": "git+https://github.com/phun-ky/defaults-deep.git"
   },
   "keywords": [
-    "nodeutils",
-    "defaultsDeep",
-    "lodash",
+    "node-utils",
+    "node",
+    "javascript",
+    "typescript",
+    "esm",
+    "utility",
+    "utils",
+    "object",
+    "object-utils",
+    "object-merge",
+    "deep-merge",
+    "deepmerge",
+    "merge",
+    "mergeWith",
+    "merge-customizer",
+    "customizer",
+    "defaults",
+    "defaultsdeep",
+    "deep-defaults",
+    "config",
+    "configuration",
+    "settings",
+    "options",
+    "preset",
+    "overrides",
+    "override",
+    "assign",
+    "extend",
+    "mixin",
+    "combine",
+    "compose",
+    "nested",
+    "recursive",
+    "immutable",
+    "mutate",
+    "clone",
     "array",
-    "merge"
+    "arrays",
+    "array-merge",
+    "array-preserve",
+    "array-preservation",
+    "array-replace",
+    "array-overwrite",
+    "lodash",
+    "lodash-alternative",
+    "lodash-replacement",
+    "lodash-compat",
+    "lightweight"
   ],
-  "author": "Drew Llewellyn <drew@drew.pro> (http://drew.pro)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nodeutils/defaults-deep/issues"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
   },
-  "homepage": "https://github.com/nodeutils/defaults-deep#readme",
+  "author": {
+    "name": "Alexander Vassbotn Røyne-Helgesen",
+    "email": "alexander@phun-ky.net"
+  },
+  "contributors": [
+    "Drew Llewellyn <drew@drew.pro> (https://drew.pro)"
+  ],
+  "maintainers": [
+    {
+      "name": "Alexander Vassbotn Røyne-Helgesen",
+      "email": "alexander@phun-ky.net"
+    }
+  ],
+  "license": "MIT AND ISC",
+  "bugs": {
+    "url": "https://github.com/phun-ky/defaults-deep/issues"
+  },
+  "homepage": "https://github.com/phun-ky/defaults-deep#readme",
   "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-preset-es2015": "^6.13.2",
-    "chai": "^3.5.0",
-    "istanbul": "^0.4.4",
-    "local-web-server": "^1.2.6",
-    "mocha": "^3.0.2"
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@types/node": "^24.3.0",
+    "cobertura": "^1.0.1",
+    "eslint": "^9.20.0",
+    "eslint-config-phun-ky": "^1.0.0",
+    "git-cz": "^4.9.0",
+    "glob-bin": "^1.0.0",
+    "global-jsdom": "^27.0.0",
+    "jsdom": "^27.0.0",
+    "prettier": "^3.5.1",
+    "putout": "^40.0.16",
+    "quibble": "^0.9.1",
+    "release-it": "^19.0.1",
+    "remark-github": "^12.0.0",
+    "remark-toc": "^9.0.0",
+    "rollup": "^4.12.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.3.1",
+    "tsx": "^4.7.1",
+    "typedoc": "^0.28.2",
+    "typedoc-plugin-frontmatter": "^1.0.0",
+    "typedoc-plugin-markdown": "^4.2.3",
+    "typedoc-plugin-mdn-links": "^5.0.1",
+    "typedoc-plugin-no-inherit": "^1.4.0",
+    "typedoc-plugin-remark": "^2.0.0",
+    "typedoc-plugin-rename-defaults": "^0.7.1",
+    "typescript": "^5.0.0",
+    "unified-prettier": "^2.0.1"
+  },
+  "engines": {
+    "node": "^20.9.0 || >=22.0.0",
+    "npm": ">=10.8.2"
   },
   "dependencies": {
-    "lodash": "^4.15.0"
+    "@phun-ky/typeof": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
