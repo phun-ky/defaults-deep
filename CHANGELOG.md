@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1](https://github.com/phun-ky/defaults-deep/compare/1.1.0...1.1.1) (2026-01-22)
+
+### Tasks
+
+* remove old tokens ref ([74f7503](https://github.com/phun-ky/defaults-deep/commit/74f75038f289d752fd5ad6c2f63b327f7a6388ca))
+
 ## 1.1.0 (2026-01-22)
 
 ### Tasks
