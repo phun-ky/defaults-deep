@@ -2,7 +2,7 @@
 
 # main
 
-> Last updated 2026-01-22T09:01:41.990Z
+> Last updated 2026-01-22T09:34:19.806Z
 
 ## Functions
 
@@ -12,7 +12,7 @@
 function defaultsDeep(...args): Record<PropertyKey, unknown>;
 ```
 
-Defined in: main.ts:57
+Defined in: [main.ts:57](https://github.com/phun-ky/defaults-deep/blob/main/src/main.ts#L57)
 
 Deeply applies "defaults" from right-to-left sources into a new object, while preserving arrays.
 

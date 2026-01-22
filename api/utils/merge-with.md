@@ -2,7 +2,7 @@
 
 # utils/merge-with
 
-> Last updated 2026-01-22T09:01:42.055Z
+> Last updated 2026-01-22T09:34:19.880Z
 
 ## Type Aliases
 
@@ -19,7 +19,7 @@ type MergeWithCustomizer = (
 ) => unknown;
 ```
 
-Defined in: utils/merge-with.ts:43
+Defined in: [utils/merge-with.ts:43](https://github.com/phun-ky/defaults-deep/blob/main/src/utils/merge-with.ts#L43)
 
 Customizer function used by [mergeWith](#mergewith) to override merge behaviour.
 
@@ -72,7 +72,7 @@ mergeWith(a, b, concatArrays);
 function mergeWith<T, S>(object, ...sources): MergeResult<T, S>;
 ```
 
-Defined in: utils/merge-with.ts:119
+Defined in: [utils/merge-with.ts:119](https://github.com/phun-ky/defaults-deep/blob/main/src/utils/merge-with.ts#L119)
 
 Deep-merges one or more source objects into a destination object, with optional customization.
 
@@ -149,7 +149,7 @@ mergeWith({ list: [1] }, { list: [2] }, concatArrays);
 function mergeWith<T, S>(object, ...args): MergeResult<T, S>;
 ```
 
-Defined in: utils/merge-with.ts:124
+Defined in: [utils/merge-with.ts:124](https://github.com/phun-ky/defaults-deep/blob/main/src/utils/merge-with.ts#L124)
 
 Deep-merges one or more source objects into a destination object, with optional customization.
 
