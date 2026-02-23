@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.5](https://github.com/phun-ky/defaults-deep/compare/1.1.4...1.1.5) (2026-02-23)
+
+### Tasks
+
+* 🤖 bump putout in the major-updates group across 1 directory ([d61c776](https://github.com/phun-ky/defaults-deep/commit/d61c7764a3e2275dd68679a946babb1a67b1072c))
+
 ## [1.1.4](https://github.com/phun-ky/defaults-deep/compare/1.1.3...1.1.4) (2026-02-12)
 
 ### Tasks
