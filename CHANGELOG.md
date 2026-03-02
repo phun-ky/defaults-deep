@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.6](https://github.com/phun-ky/defaults-deep/compare/1.1.5...1.1.6) (2026-03-02)
+
+### Tasks
+
+* 🤖 bump rollup from 4.57.1 to 4.59.0 ([673f69a](https://github.com/phun-ky/defaults-deep/commit/673f69a942045946b17e99fb21dea513c448c207))
+
 ## [1.1.5](https://github.com/phun-ky/defaults-deep/compare/1.1.4...1.1.5) (2026-02-23)
 
 ### Tasks
