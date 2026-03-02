@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.9](https://github.com/phun-ky/defaults-deep/compare/1.1.8...1.1.9) (2026-03-02)
+
+### Tasks
+
+* 🤖 bump minimatch from 3.1.2 to 3.1.5 ([f5ab510](https://github.com/phun-ky/defaults-deep/commit/f5ab5103bdfd28c5efe29b239f2916e61fceccc1))
+
 ## [1.1.8](https://github.com/phun-ky/defaults-deep/compare/1.1.7...1.1.8) (2026-03-02)
 
 ### Tasks
