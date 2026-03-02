@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.7](https://github.com/phun-ky/defaults-deep/compare/1.1.6...1.1.7) (2026-03-02)
+
+### Tasks
+
+* 🤖 bump basic-ftp from 5.1.0 to 5.2.0 ([8ae4b30](https://github.com/phun-ky/defaults-deep/commit/8ae4b30042465ba70267b785eac27e052d8e1e1f))
+
 ## [1.1.6](https://github.com/phun-ky/defaults-deep/compare/1.1.5...1.1.6) (2026-03-02)
 
 ### Tasks
