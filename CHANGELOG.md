@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.11](https://github.com/phun-ky/defaults-deep/compare/1.1.10...1.1.11) (2026-03-09)
+
+### Tasks
+
+* 🤖 bump @rollup/plugin-terser in the major-updates group ([9cb5e80](https://github.com/phun-ky/defaults-deep/commit/9cb5e80e02e9892229fb4e69ee11a7252b878063))
+
 ## [1.1.10](https://github.com/phun-ky/defaults-deep/compare/1.1.9...1.1.10) (2026-03-09)
 
 ### Tasks
