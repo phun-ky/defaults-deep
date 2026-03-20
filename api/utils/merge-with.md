@@ -2,11 +2,11 @@
 
 # utils/merge-with
 
-> Last updated 2026-03-13T08:41:23.844Z
+> Last updated 2026-03-20T08:46:03.188Z
 
 ## Type Aliases
 
-### MergeWithCustomizer()
+### MergeWithCustomizer
 
 ```ts
 type MergeWithCustomizer = (
