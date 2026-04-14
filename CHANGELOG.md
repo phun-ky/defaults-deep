@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.15](https://github.com/phun-ky/defaults-deep/compare/1.1.14...1.1.15) (2026-04-14)
+
+### Tasks
+
+* 🤖 bump the major-updates group across 1 directory with 3 updates ([ca944fd](https://github.com/phun-ky/defaults-deep/commit/ca944fda9148bb85a6bb3ac5211870ee5d3e8753))
+* 🤖 Update tsconfig ([fc35211](https://github.com/phun-ky/defaults-deep/commit/fc35211bd17921a0e42b2d00dcdfd3101591956f))
+
 ## [1.1.14](https://github.com/phun-ky/defaults-deep/compare/1.1.13...1.1.14) (2026-04-14)
 
 ### Tasks
