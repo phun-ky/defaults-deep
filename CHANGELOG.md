@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.14](https://github.com/phun-ky/defaults-deep/compare/1.1.13...1.1.14) (2026-04-14)
+
+### Tasks
+
+* 🤖 bump lodash from 4.17.23 to 4.18.1 ([83e3c45](https://github.com/phun-ky/defaults-deep/commit/83e3c45cf52692194c78dbdc7808e03cd9bb8a11))
+
 ## [1.1.13](https://github.com/phun-ky/defaults-deep/compare/1.1.12...1.1.13) (2026-03-20)
 
 ### Tasks
