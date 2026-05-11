@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.17](https://github.com/phun-ky/defaults-deep/compare/1.1.16...1.1.17) (2026-05-11)
+
+### Tasks
+
+* 🤖 bump fast-uri from 3.1.0 to 3.1.2 ([434e67d](https://github.com/phun-ky/defaults-deep/commit/434e67d56eafe81db8b89589879dab866915523d))
+
 ## [1.1.16](https://github.com/phun-ky/defaults-deep/compare/1.1.15...1.1.16) (2026-04-27)
 
 ### Tasks
