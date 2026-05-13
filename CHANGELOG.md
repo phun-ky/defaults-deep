@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.19](https://github.com/phun-ky/defaults-deep/compare/1.1.18...1.1.19) (2026-05-13)
+
+### Tasks
+
+* 🤖 bump ip-address from 10.1.0 to 10.2.0 ([0543aaf](https://github.com/phun-ky/defaults-deep/commit/0543aaf8c77b68ec05b9661f1a7f0680d203fecf))
+
 ## [1.1.18](https://github.com/phun-ky/defaults-deep/compare/1.1.17...1.1.18) (2026-05-13)
 
 ### Tasks
