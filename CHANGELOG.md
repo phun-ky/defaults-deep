@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.18](https://github.com/phun-ky/defaults-deep/compare/1.1.17...1.1.18) (2026-05-13)
+
+### Tasks
+
+* 🤖 bump postcss from 8.5.9 to 8.5.14 ([37846d0](https://github.com/phun-ky/defaults-deep/commit/37846d0d270762c8798827642a23278d7a5c9b87))
+
 ## [1.1.17](https://github.com/phun-ky/defaults-deep/compare/1.1.16...1.1.17) (2026-05-11)
 
 ### Tasks
