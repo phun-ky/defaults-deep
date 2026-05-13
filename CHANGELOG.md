@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/phun-ky/defaults-deep/compare/1.1.19...2.0.0) (2026-05-13)
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 Drops support for Node.js v20 and older
+
+### Tasks
+
+* 🤖 bump the major-updates group across 1 directory with 3 updates ([7fb305d](https://github.com/phun-ky/defaults-deep/commit/7fb305db2d5e154ec6b4493d2791acc88b74bc49))
+* 🤖 Update development tooling requirements ([f535d4f](https://github.com/phun-ky/defaults-deep/commit/f535d4f1ad520b256caa0061c5823b4cd779e86c))
+
 ## [1.1.19](https://github.com/phun-ky/defaults-deep/compare/1.1.18...1.1.19) (2026-05-13)
 
 ### Tasks
