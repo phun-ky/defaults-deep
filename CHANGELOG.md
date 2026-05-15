@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.2](https://github.com/phun-ky/defaults-deep/compare/2.0.1...2.0.2) (2026-05-15)
+
+### Tasks
+
+* 🤖 bump @phun-ky/typeof ([9ad2eb5](https://github.com/phun-ky/defaults-deep/commit/9ad2eb590fb6ce48036d5250ca0e9104e9b09e93))
+
 ## [2.0.1](https://github.com/phun-ky/defaults-deep/compare/2.0.0...2.0.1) (2026-05-15)
 
 ### Tasks

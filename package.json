@@ -1,6 +1,6 @@
 {
   "name": "@phun-ky/defaults-deep",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Like lodash's _.defaultsDeep, but with array preservation",
   "type": "module",
   "main": "./dist/defaults-deep.cjs",
