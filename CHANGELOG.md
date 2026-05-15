@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1](https://github.com/phun-ky/defaults-deep/compare/2.0.0...2.0.1) (2026-05-15)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group with 6 updates ([e8dc20c](https://github.com/phun-ky/defaults-deep/commit/e8dc20cc3a895fdddd81c4db60ea65d3ef9fecca))
+
 ## [2.0.0](https://github.com/phun-ky/defaults-deep/compare/1.1.19...2.0.0) (2026-05-13)
 
 ### ⚠ BREAKING CHANGES

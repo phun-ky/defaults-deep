@@ -2,7 +2,7 @@
 
 # utils/merge-with
 
-> Last updated 2026-05-13T08:48:25.269Z
+> Last updated 2026-05-15T06:22:55.036Z
 
 ## Type Aliases
 
