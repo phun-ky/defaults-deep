@@ -155,6 +155,8 @@ export function mergeWith(
   return object as any;
 }
 
+const UNSAFE_KEYS = new Set<string>(['__proto__', 'constructor', 'prototype']);
+
 /**
  * Internal recursive merge implementation used by {@link mergeWith}.
  *
@@ -172,6 +174,9 @@ const baseMerge = (
   if (!isObjectLoose(source)) return;
 
   for (const key of ownKeys(source)) {
+    if (typeof key === 'string' && UNSAFE_KEYS.has(key)) {
+      continue;
+    }
     const srcValue = (source as any)[key];
     const objValue = (target as any)[key];
     const customized = customizer?.(
