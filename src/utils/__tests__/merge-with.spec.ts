@@ -5,7 +5,7 @@ import { mergeWith, MergeWithCustomizer } from '../merge-with';
 import { isObjectLoose } from '@phun-ky/typeof';
 
 describe('mergeWith', () => {
-  test('mergeWith: mutates and returns the same object reference', () => {
+  test('that it mutates and returns the same object reference', () => {
     const target = { a: 1 };
     const out = mergeWith(target, { b: 2 });
 
@@ -13,7 +13,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target, { a: 1, b: 2 });
   });
 
-  test('mergeWith: merges plain objects recursively', () => {
+  test('that it merges plain objects recursively', () => {
     const target = { a: { x: 1 }, b: 1 };
     const source = { a: { y: 2 }, b: 2 };
 
@@ -22,7 +22,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target, { a: { x: 1, y: 2 }, b: 2 });
   });
 
-  test('mergeWith: when src value is plain object and target is not, create {} and merge into it', () => {
+  test('when src value is plain object and target is not, create {} and merge into it', () => {
     const target: any = { a: 123 };
     const source = { a: { x: 1 } };
 
@@ -32,7 +32,7 @@ describe('mergeWith', () => {
     assert.equal(typeof target.a, 'object');
   });
 
-  test('mergeWith: arrays replace by default (same reference)', () => {
+  test('that arrays replace by default (same reference)', () => {
     const target = { list: [1] };
     const source = { list: [2] };
 
@@ -42,7 +42,7 @@ describe('mergeWith', () => {
     assert.equal(target.list, source.list); // replacement assigns the source array reference
   });
 
-  test('mergeWith: array replacement is not a clone (mutations reflect)', () => {
+  test('that the array replacement is not a clone (mutations reflect)', () => {
     const target = { list: [1] };
     const source = { list: [2] };
 
@@ -52,7 +52,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target.list, [2, 3]); // same reference
   });
 
-  test('mergeWith: customizer can override array behavior (concat)', () => {
+  test('that the customizer can override array behavior (concat)', () => {
     const concatArrays: MergeWithCustomizer = (objValue, srcValue) => {
       if (Array.isArray(objValue) && Array.isArray(srcValue)) {
         return objValue.concat(srcValue);
@@ -68,7 +68,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target, { a: [1, 3], b: [2, 4] });
   });
 
-  test("mergeWith: customizer return value is assigned even if it's null/false/0/''", () => {
+  test("that the customizer return value is assigned even if it's null/false/0/''", () => {
     const customizer: MergeWithCustomizer = (_obj, _src, key) => {
       if (key === 'a') return null;
       if (key === 'b') return false;
@@ -85,7 +85,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target, { a: null, b: false, c: 0, d: '' });
   });
 
-  test('mergeWith: customizer is called with expected arguments', () => {
+  test('that the customizer is called with expected arguments', () => {
     const calls: Array<{
       objValue: unknown;
       srcValue: unknown;
@@ -121,7 +121,7 @@ describe('mergeWith', () => {
     assert.ok(calls[0]!.stack instanceof WeakMap);
   });
 
-  test('mergeWith: merges multiple sources left-to-right (later sources win)', () => {
+  test('it merges multiple sources left-to-right (later sources win)', () => {
     const target = { a: 1, nested: { x: 1 } };
 
     mergeWith(target, { a: 2, nested: { y: 2 } }, { a: 3, nested: { z: 3 } });
@@ -129,7 +129,7 @@ describe('mergeWith', () => {
     assert.deepEqual(target, { a: 3, nested: { x: 1, y: 2, z: 3 } });
   });
 
-  test('mergeWith: merges enumerable symbol keys', () => {
+  test('it merges enumerable symbol keys', () => {
     const sym = Symbol('k');
     const target: any = {};
     const source: any = { [sym]: 123 };
@@ -139,7 +139,7 @@ describe('mergeWith', () => {
     assert.equal(target[sym], 123);
   });
 
-  test('mergeWith: does not merge non-enumerable properties', () => {
+  test('it does not merge non-enumerable properties', () => {
     const target: any = {};
     const source: any = {};
 
@@ -153,7 +153,7 @@ describe('mergeWith', () => {
     assert.equal(target.hidden, undefined);
   });
 
-  test('mergeWith: assigns non-plain objects by replacement (class instances)', () => {
+  test('it assigns non-plain objects by replacement (class instances)', () => {
     class Box {
       constructor(public value: number) {}
     }
@@ -167,7 +167,7 @@ describe('mergeWith', () => {
     assert.equal(target.box.value, 2);
   });
 
-  test('mergeWith: circular references in source do not cause infinite recursion', () => {
+  test('that circular references in source do not cause infinite recursion', () => {
     const target: any = {};
     const source: any = { a: {} };
     source.a.self = source; // circular-ish reference
@@ -180,7 +180,7 @@ describe('mergeWith', () => {
     assert.ok(isObjectLoose(target.a));
   });
 
-  test('mergeWith: repeated source object reuses the same merged reference', () => {
+  test('that repeated source object reuses the same merged reference', () => {
     const shared: any = { deep: { x: 1 } };
     const source: any = { a: shared, b: shared };
 
@@ -189,5 +189,31 @@ describe('mergeWith', () => {
 
     assert.deepEqual(target.a, { deep: { x: 1 } });
     assert.equal(target.a, target.b); // same merged object reference (graph preserved)
+  });
+
+  test('it does not allow __proto__ prototype pollution', () => {
+    const target: any = {};
+
+    const payload = JSON.parse('{"__proto__":{"polluted":"yes"}}');
+
+    mergeWith(target, payload);
+
+    assert.equal(({} as any).polluted, undefined);
+    assert.equal(target.polluted, undefined);
+  });
+  test('it does not allow constructor.prototype pollution', () => {
+    const target: any = {};
+
+    const payload = {
+      constructor: {
+        prototype: {
+          polluted: 'yes'
+        }
+      }
+    };
+
+    mergeWith(target, payload);
+
+    assert.equal(({} as any).polluted, undefined);
   });
 });
