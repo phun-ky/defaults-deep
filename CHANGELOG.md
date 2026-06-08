@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.5](https://github.com/phun-ky/defaults-deep/compare/2.0.4...2.0.5) (2026-06-08)
+
+### Tasks
+
+* 🤖 Update dependencies ([1141f9a](https://github.com/phun-ky/defaults-deep/commit/1141f9aedab989fa1470883b929104f99f80a840))
+
+### Bug
+
+* 🐛 Mitigate prototype pollution vulnerability ([807dba9](https://github.com/phun-ky/defaults-deep/commit/807dba930f8718f9126cad59d949b8fd3539b059))
+
 ## [2.0.4](https://github.com/phun-ky/defaults-deep/compare/2.0.3...2.0.4) (2026-06-04)
 
 ### Tasks
