@@ -2,7 +2,7 @@
 
 ---
 
-> Last updated 2026-06-14T18:10:39.843Z
+> Last updated 2026-10-13T09:18:49.938Z
 
 ## Modules
 
@@ -13,7 +13,7 @@
 
 **Contributing**
 
-Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/defaults-deep/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/phun-ky/defaults-deep/blob/main/CODE_OF_CONDUCT.md)
+Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/defaults-deep/blob/main/CONTRIBUTING.md) and [CODE\_OF\_CONDUCT.md](https://github.com/phun-ky/defaults-deep/blob/main/CODE_OF_CONDUCT.md)
 
 **Sponsor me**
 

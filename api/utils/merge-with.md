@@ -2,7 +2,7 @@
 
 # utils/merge-with
 
-> Last updated 2026-06-14T18:10:40.050Z
+> Last updated 2026-10-13T09:18:50.217Z
 
 ## Type Aliases
 
@@ -29,7 +29,7 @@ deep-merge rules. Any other return value will be assigned to the destination key
 #### Parameters
 
 | Parameter  | Type                                                                                                                  | Description                                                                       |
-| ---------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------- |
+| ---------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `objValue` | `unknown`                                                                                                             | Current value on the destination (`object`) for `key`.                            |
 | `srcValue` | `unknown`                                                                                                             | Incoming value from the current `source` for `key`.                               |
 | `key`      | `string`                                                                                                              | `symbol`                                                                          | Property key being merged (string or symbol). |
@@ -224,7 +224,7 @@ mergeWith({ list: [1] }, { list: [2] }, concatArrays);
 
 **Contributing**
 
-Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/defaults-deep/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/phun-ky/defaults-deep/blob/main/CODE_OF_CONDUCT.md)
+Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/defaults-deep/blob/main/CONTRIBUTING.md) and [CODE\_OF\_CONDUCT.md](https://github.com/phun-ky/defaults-deep/blob/main/CODE_OF_CONDUCT.md)
 
 **Sponsor me**
 
