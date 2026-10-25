@@ -79,6 +79,30 @@ describe('defaultsDeep properties', () => {
     );
   });
 
+  test('that keys sharing a source object never share an output object', () => {
+    fc.assert(
+      fc.property(
+        safeKey,
+        safeKey,
+        flatObject,
+        flatObject,
+        flatObject,
+        (first, second, shared, defaultsFirst, defaultsSecond) => {
+          fc.pre(first !== second);
+
+          const out = defaultsDeep(
+            { [first]: defaultsFirst, [second]: defaultsSecond },
+            { [first]: shared, [second]: shared }
+          );
+
+          assert.notEqual(out[first], out[second]);
+          assert.deepEqual(out[first], { ...shared, ...defaultsFirst });
+          assert.deepEqual(out[second], { ...shared, ...defaultsSecond });
+        }
+      )
+    );
+  });
+
   test('that no input pollutes Object.prototype', () => {
     fc.assert(
       fc.property(
