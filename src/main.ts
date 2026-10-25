@@ -16,7 +16,7 @@ import { mergeWith } from './utils/merge-with';
  *   values from the first argument are treated as "defaults" that should *not* be overwritten
  *   by later arguments (because later arguments are merged first).
  * - Only **object-like** sources participate in merging. Non-objects are skipped via `isObjectLoose`.
- * - Uses {@link mergeWith} for the deep merge logic.
+ * - Uses an internal `mergeWith` for the deep merge logic.
  * - **Arrays are preserved by replacement**: if a source value is an array, it replaces the
  *   destination value at that key (rather than being merged element-by-element).
  *
@@ -48,7 +48,7 @@ import { mergeWith } from './utils/merge-with';
  * @remarks
  *
  * - The customizer only checks the *source* value for arrays. If `s` is an array, it is returned
- *   and assigned as-is. Otherwise returning `undefined` delegates merging to {@link mergeWith}'s
+ *   and assigned as-is. Otherwise returning `undefined` delegates merging to `mergeWith`'s
  *   default behaviour (which deep-merges plain objects and replaces other value types).
  * - The output type is `Record<PropertyKey, unknown>` to keep the API broadly usable without
  *   over-promising specific shapes.
