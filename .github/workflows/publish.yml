@@ -11,6 +11,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'README.md'
+      - 'LICENSE'
       - 'LICENSE-MIT'
       - 'LICENSE-ISC'
       - 'rollup.config.js'

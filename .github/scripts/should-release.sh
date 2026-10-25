@@ -20,6 +20,7 @@ published_files=(
   tsconfig.build.json
   package.json
   README.md
+  LICENSE
   LICENSE-MIT
   LICENSE-ISC
 )

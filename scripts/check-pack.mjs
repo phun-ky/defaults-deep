@@ -88,10 +88,11 @@ try {
   const packed = Array.isArray(output) ? output[0] : Object.values(output)[0];
   const files = new Set(packed.files.map((file) => file.path));
 
-  // npm adds README.md on its own; the licence files have names npm doesn't
-  // pick up by itself, so they must be in "files"
+  // npm adds LICENSE and README.md on its own; LICENSE-MIT and LICENSE-ISC
+  // have names npm doesn't pick up by itself, so they must be in "files"
   for (const path of [
     ...entryPoints(pkg),
+    'LICENSE',
     'LICENSE-MIT',
     'LICENSE-ISC',
     'README.md',
