@@ -53,6 +53,9 @@ unreleased=$(git rev-list "$last_tag..HEAD")
 cancelled=""
 
 while read -r sha; do
+  # An empty range (nothing since the tag) still gives one empty line
+  [[ -z "$sha" ]] && continue
+
   reverted=$(git log -1 --format=%b "$sha" |
     sed -n 's/^This reverts commit \([0-9a-f]\{40\}\).*/\1/p')
   if [[ -n "$reverted" ]] && grep -qx "$reverted" <<< "$unreleased"; then

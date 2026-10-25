@@ -54,6 +54,8 @@ const defaultsDeep = require('@phun-ky/defaults-deep');
 
 ## API
 
+The full API reference, generated from the source with TypeDoc, is in [docs/api](https://github.com/phun-ky/defaults-deep/blob/main/docs/api/README.md).
+
 ```ts
 function defaultsDeep(...args): Record<PropertyKey, unknown>;
 ```
