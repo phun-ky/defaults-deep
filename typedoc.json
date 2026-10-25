@@ -7,7 +7,7 @@
     "typedoc-plugin-rename-defaults",
     "./custom-typedoc-plugin.js"
   ],
-  "out": "./api",
+  "out": "./docs/api",
   "tsconfig": "tsconfig.build.json",
   "outputFileStrategy": "modules",
   "interfacePropertiesFormat": "table",
@@ -20,18 +20,26 @@
   "parametersFormat": "table",
   "entryPoints": ["./src/main.ts"],
   "entryPointStrategy": "resolve",
-  "readme": "./public/docs/README.md",
+  "readme": "none",
   "gitRevision": "main",
   "githubPages": false,
-  "mergeReadme": true,
   "useCodeBlocks": true,
   "expandObjects": true,
   "remarkPlugins": [
     "unified-prettier",
     [
       "remark-github",
-      { "repository": "https://github.com/phun-ky/defaults-deep" }
+      {
+        "repository": "https://github.com/phun-ky/defaults-deep"
+      }
     ],
-    ["remark-toc", { "heading": "Table of Contents", "maxDepth": 3 }]
-  ]
+    [
+      "remark-toc",
+      {
+        "heading": "Table of Contents",
+        "maxDepth": 3
+      }
+    ]
+  ],
+  "name": "defaults-deep API Documentation"
 }
