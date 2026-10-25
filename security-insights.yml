@@ -58,7 +58,7 @@ repository:
     dependency-management-policy: https://github.com/phun-ky/defaults-deep/blob/main/SECURITY.md#dependencies
     governance: https://github.com/phun-ky/defaults-deep/blob/main/GOVERNANCE.md
   license:
-    url: https://github.com/phun-ky/defaults-deep/blob/main/LICENSE-MIT
+    url: https://github.com/phun-ky/defaults-deep/blob/main/LICENSE
     expression: MIT AND ISC
   release:
     automated-pipeline: true
