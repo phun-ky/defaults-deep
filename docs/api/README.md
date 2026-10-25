@@ -1,8 +1,6 @@
 # defaults-deep API Documentation
 
----
-
-> Last updated 2026-10-25T18:23:08.795Z
+> Last updated 2026-10-25T18:31:34.668Z
 
 ## Functions
 
