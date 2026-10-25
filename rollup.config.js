@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
 import ts from 'rollup-plugin-typescript2';
@@ -48,10 +47,8 @@ const banner = `/**
 * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 * PERFORMANCE OF THIS SOFTWARE.
 */`;
-
 // Runtime dependencies stay external: consumers install them from npm
 const external = Object.keys(pack.dependencies ?? {});
-
 // The CommonJS build sets module.exports to the function, so its types must use
 // `export =` rather than `export default`
 const cjsTypes = {
@@ -88,6 +85,7 @@ export default [
     ],
     plugins: [
       ts({
+        tsconfig: 'tsconfig.build.json',
         useTsconfigDeclarationDir: true,
         sourceMap: true,
         typescript
