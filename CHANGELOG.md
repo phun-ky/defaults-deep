@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.8](https://github.com/phun-ky/defaults-deep/compare/2.0.7...2.0.8) (2026-10-25)
+
+### Tasks
+
+* 🤖 move to release-it 21 and conventional-changelog 12 ([7986d81](https://github.com/phun-ky/defaults-deep/commit/7986d818a0d9df5e027177a78124420f7c9d19e4)), references [#94](https://github.com/phun-ky/defaults-deep/issues/94)
+
+### Bug
+
+* 🐛 publish correct CommonJS types, the licences and an unbundled build ([2ecd73f](https://github.com/phun-ky/defaults-deep/commit/2ecd73f0507c1ea7e3239f2b4dd055bd69322964)), closes [#88](https://github.com/phun-ky/defaults-deep/issues/88) [#89](https://github.com/phun-ky/defaults-deep/issues/89) [#90](https://github.com/phun-ky/defaults-deep/issues/90) [#92](https://github.com/phun-ky/defaults-deep/issues/92)
+
 ## [2.0.7](https://github.com/phun-ky/defaults-deep/compare/2.0.6...2.0.7) (2026-10-13)
 
 ### Tasks
