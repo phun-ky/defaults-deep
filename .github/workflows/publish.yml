@@ -58,7 +58,7 @@ jobs:
       - name: Audit runtime dependencies # No release with a known high or critical vulnerability
         if: steps.guard.outputs.release == 'true'
         run: npm audit --omit=dev --audit-level=high
-      - name: Release # Builds, regenerates the API docs, then publishes
+      - name: Release # Builds, runs check:pack, regenerates the API docs, then publishes
         if: steps.guard.outputs.release == 'true'
         run: |
           git config user.name "$ACTOR"
@@ -68,7 +68,7 @@ jobs:
           ACTOR: ${{ github.actor }} # via env, never interpolated into the script
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-      - name: Attach SBOM to the release # CycloneDX, with the bundled packages
+      - name: Attach SBOM to the release # CycloneDX, with any bundled packages
         if: steps.guard.outputs.release == 'true'
         run: |
           version=$(node -p "require('./package.json').version")
