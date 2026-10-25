@@ -25,15 +25,17 @@
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
     "docs:gen": "node ./node_modules/.bin/typedoc",
-    "release": "npx release-it --ci",
-    "rollup": "rollup -c",
     "prerollup:dev": "npm run clean",
+    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
+    "release": "release-it",
+    "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-git.requireCleanWorkingDir --no-git.requireUpstream",
+    "rollup": "rollup -c",
     "rollup:dev": "rollup -c -w",
+    "sbom": "node scripts/sbom.mjs",
     "style:code": "npx putout src",
     "style:format": "eslint -c ./eslint.config.mjs src/**/*.ts  --fix --no-warn-ignored && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
     "style:lint": "eslint -c ./eslint.config.mjs src/**/*.ts --no-warn-ignored && ./node_modules/.bin/prettier --check src",
     "test": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings\" \"./src/**/__tests__/**/*.[jt]s\"",
-    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
     "test:ci": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings --experimental-test-coverage --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout\" \"./src/**/__tests__/**/*.[jt]s\""
   },
   "funding": "https://github.com/phun-ky/defaults-deep?sponsor=1",
@@ -115,7 +117,7 @@
   },
   "homepage": "https://github.com/phun-ky/defaults-deep#readme",
   "devDependencies": {
-    "@release-it/conventional-changelog": "^11.0.0",
+    "@release-it/conventional-changelog": "^12.0.2",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^1.0.0",
     "@types/node": "^25.9.2",
@@ -129,7 +131,7 @@
     "prettier": "^3.8.0",
     "putout": "^42.0.13",
     "quibble": "^0.9.1",
-    "release-it": "^20.0.1",
+    "release-it": "^21.1.1",
     "remark-github": "^12.0.0",
     "remark-toc": "^9.0.0",
     "rollup": "^4.12.0",
@@ -151,10 +153,18 @@
     "node": ">=22.9.0",
     "npm": ">=11.0.0"
   },
-  "dependencies": {
-    "@phun-ky/typeof": "^3.0.0"
-  },
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "get-uri": {
+      "basic-ftp": "^6.2.3"
+    },
+    "release-it": {
+      "undici": "^7.30.1"
+    }
+  },
+  "dependencies": {
+    "@phun-ky/typeof": "^3.0.0"
   }
 }
