@@ -120,7 +120,7 @@ Finally, because this package is written in TypeScript with a strict API surface
 
 ## Notice
 
-This project is a fork of <https://github.com/nodeutils/defaults-deep>. Original work © 2016 Drew Llewellyn, licensed ISC (see LICENSE-ISC). Modifications © 2026 Alexander Vassbotn Røyne-Helgesen, licensed MIT (see LICENSE-MIT).
+This project is a fork of <https://github.com/nodeutils/defaults-deep>. Original work © 2016 Drew Llewellyn, licensed ISC (see LICENSE-ISC). Modifications © 2026 Alexander Vassbotn Røyne-Helgesen, licensed MIT (see LICENSE-MIT). LICENSE has both.
 
 ## Contributing
 
