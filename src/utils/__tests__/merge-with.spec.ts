@@ -180,7 +180,15 @@ describe('mergeWith', () => {
     assert.ok(isObjectLoose(target.a));
   });
 
-  test('that repeated source object reuses the same merged reference', () => {
+  test('that sources that are not objects are skipped', () => {
+    const target: any = { a: 1 };
+
+    mergeWith(target, null as any, 'text' as any, 42 as any, { b: 2 });
+
+    assert.deepEqual(target, { a: 1, b: 2 });
+  });
+
+  test('that a source object repeated under two keys gets its own copy per key', () => {
     const shared: any = { deep: { x: 1 } };
     const source: any = { a: shared, b: shared };
 
@@ -188,7 +196,32 @@ describe('mergeWith', () => {
     mergeWith(target, source);
 
     assert.deepEqual(target.a, { deep: { x: 1 } });
-    assert.equal(target.a, target.b); // same merged object reference (graph preserved)
+    assert.deepEqual(target.b, { deep: { x: 1 } });
+    assert.notEqual(target.a, target.b);
+    assert.notEqual(target.a.deep, target.b.deep);
+  });
+
+  test('that a repeated source object merges into each existing destination separately', () => {
+    const shared = { z: 3 };
+    const target: any = { a: { p: 1 }, b: { q: 2 } };
+
+    mergeWith(target, { a: shared, b: shared });
+
+    assert.deepEqual(target.a, { p: 1, z: 3 });
+    assert.deepEqual(target.b, { q: 2, z: 3 });
+    assert.notEqual(target.a, target.b);
+  });
+
+  test('that a cycle through existing destination objects is preserved, not followed forever', () => {
+    const cyclic: any = { x: 1 };
+    cyclic.b = cyclic;
+
+    const target: any = { a: { b: {} } };
+
+    mergeWith(target, { a: cyclic });
+
+    assert.equal(target.a.x, 1);
+    assert.equal(target.a.b, target.a);
   });
 
   test('it does not allow __proto__ prototype pollution', () => {

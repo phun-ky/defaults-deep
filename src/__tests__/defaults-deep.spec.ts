@@ -116,6 +116,21 @@ describe('defaults-deep', () => {
     assert.notEqual(out, b);
   });
 
+  test('that keys sharing a source object keep their own defaults', () => {
+    const theme = { color: 'red' };
+    const out: any = defaultsDeep(
+      { header: { size: 1 }, footer: { size: 2 } },
+      { header: theme, footer: theme }
+    );
+
+    assert.deepEqual(out, {
+      header: { color: 'red', size: 1 },
+      footer: { color: 'red', size: 2 }
+    });
+    assert.notEqual(out.header, out.footer);
+    assert.deepEqual(theme, { color: 'red' });
+  });
+
   test('that circular-ish sources do not cause infinite recursion', () => {
     const src: any = { a: { x: 1 } };
     src.a.self = src; // creates a cycle

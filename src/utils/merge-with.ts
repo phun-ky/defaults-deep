@@ -162,7 +162,9 @@ const UNSAFE_KEYS = new Set<string>(['__proto__', 'constructor', 'prototype']);
  * @param target - Destination object that is being mutated.
  * @param source - Current source object being merged in.
  * @param customizer - Optional custom merge override.
- * @param stack - Tracks visited source objects to avoid infinite recursion.
+ * @param stack - The source objects on the current path, each mapped to its
+ * destination, to stop at cycles. Only the current path: a source object
+ * reached again through a sibling key gets its own destination.
  */
 const baseMerge = (
   target: Record<PropertyKey, unknown>,
@@ -195,7 +197,7 @@ const baseMerge = (
 
     // Both are plain objects: merge into existing destination object.
     if (isObjectPlain(objValue) && isObjectPlain(srcValue)) {
-      // If we've seen this src object before, reuse the prior destination.
+      // A cycle back to a source object on the current path: point at its destination.
       const cached = stack.get(srcValue as object);
 
       if (cached) {
@@ -203,7 +205,6 @@ const baseMerge = (
         continue;
       }
 
-      // Cache before recursing to handle cycles.
       stack.set(srcValue as object, objValue as object);
 
       baseMerge(
@@ -212,6 +213,7 @@ const baseMerge = (
         customizer,
         stack
       );
+      stack.delete(srcValue as object);
       continue;
     }
 
@@ -230,7 +232,6 @@ const baseMerge = (
 
       (target as any)[key] = next;
 
-      // Cache before recursing to handle cycles and repeated refs.
       stack.set(srcValue as object, next as object);
 
       baseMerge(
@@ -239,6 +240,7 @@ const baseMerge = (
         customizer,
         stack
       );
+      stack.delete(srcValue as object);
       continue;
     }
 
