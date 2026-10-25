@@ -6,11 +6,11 @@
 
 Similar to lodash's defaultsDeep, but without mutating the source object, and no merging of arrays, and no lodash as dependency!
 
-## Table of Contents<!-- omit from toc -->- [defaults-deep](#defaults-deep)
+## Table of Contents<!-- omit from toc -->
 
 - [@phun-ky/defaults-deep](#phun-kydefaults-deep)
   - [About](#about)
-  - [Table of Contents- defaults-deep](#table-of-contents--defaults-deep)
+  - [Requirements](#requirements)
   - [Installation](#installation)
   - [Usage](#usage)
     - [ESM](#esm)
@@ -26,6 +26,10 @@ Similar to lodash's defaultsDeep, but without mutating the source object, and no
   - [Changelog](#changelog)
   - [Sponsor me](#sponsor-me)
 
+## Requirements
+
+Node.js 22.9 or later. The package ships an ES module and a CommonJS build, each with its own TypeScript types, and works in browsers through a bundler.
+
 ## Installation
 
 Install the package via `npm`:
@@ -38,14 +42,14 @@ npm i --save @phun-ky/defaults-deep
 
 ### ESM
 
-```bash
-import defaultsDeep from "@phun-ky/defaults-deep";
+```js
+import defaultsDeep from '@phun-ky/defaults-deep';
 ```
 
 ### CommonJS
 
-```
-const defaultsDeep = require("@phun-ky/defaults-deep");
+```js
+const defaultsDeep = require('@phun-ky/defaults-deep');
 ```
 
 ## API
@@ -67,7 +71,7 @@ but implemented in vanilla TypeScript with a small, predictable merge core.
   values from the first argument are treated as "defaults" that should _not_ be overwritten
   by later arguments (because later arguments are merged first).
 - Only **object-like** sources participate in merging. Non-objects are skipped via `isObjectLoose`.
-- Uses [mergeWith](utils/merge-with.md#mergewith) for the deep merge logic.
+- Uses an internal `mergeWith` for the deep merge logic.
 - **Arrays are preserved by replacement**: if a source value is an array, it replaces the
   destination value at that key (rather than being merged element-by-element).
 
@@ -102,7 +106,7 @@ defaultsDeep({ opts: { retry: 3 } }, null, { opts: { timeout: 1000 } });
 
 ## Differences from lodash (`_.defaultsDeep` / `_.mergeWith` pattern)
 
-This package is inspired by lodash's common `_.defaultsDeep` approach (often implemented as `_.toArray(arguments).reverse()` + `_.mergeWith(...)`), but it is **not a drop-in, byte-for-byte compatible clone**. The goal here is to cover the common "configuration defaults" use case with a much smaller, dependency-free implementation. For typical plain objects (JSON-like data) and arrays, the results should match what you expect from the lodash approach.
+This package is inspired by lodash's common `_.defaultsDeep` approach (often implemented as `_.toArray(arguments).reverse()` + `_.mergeWith(...)`), but it is **not a drop-in, byte-for-byte compatible clone**. The goal here is to cover the common "configuration defaults" use case with a much smaller implementation, whose only dependency is the small type-check library `@phun-ky/typeof`. For typical plain objects (JSON-like data) and arrays, the results should match what you expect from the lodash approach.
 
 The biggest difference is the underlying merge engine. Lodash's `mergeWith` is a mature, highly general deep-merge with lots of special-case behaviour for many JavaScript value types and edge cases. This implementation intentionally keeps the default rules conservative: it only deep-merges **plain objects** and treats most other things as **replace-by-assignment**. That means values like arrays, dates, maps/sets, functions, class instances, and other non-plain objects are not recursively merged unless you explicitly handle them via a customizer.
 

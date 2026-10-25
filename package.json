@@ -5,23 +5,33 @@
   "type": "module",
   "main": "./dist/defaults-deep.cjs",
   "module": "./dist/defaults-deep.js",
-  "types": "./dist/defaults-deep.d.ts",
+  "types": "./dist/defaults-deep.d.cts",
   "files": [
-    "/dist/defaults-deep.js",
-    "/dist/defaults-deep.js.map",
-    "/dist/defaults-deep.cjs",
-    "/dist/defaults-deep.cjs.map",
-    "/dist/defaults-deep.d.ts"
+    "dist",
+    "src",
+    "!src/**/__tests__",
+    "CHANGELOG.md",
+    "LICENSE-MIT",
+    "LICENSE-ISC"
   ],
   "exports": {
     ".": {
-      "types": "./dist/defaults-deep.d.ts",
-      "import": "./dist/defaults-deep.js",
-      "require": "./dist/defaults-deep.cjs"
-    }
+      "import": {
+        "types": "./dist/defaults-deep.d.ts",
+        "default": "./dist/defaults-deep.js"
+      },
+      "require": {
+        "types": "./dist/defaults-deep.d.cts",
+        "default": "./dist/defaults-deep.cjs"
+      }
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
   },
+  "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run rollup",
+    "check:pack": "node scripts/check-pack.mjs",
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
     "docs:gen": "node ./node_modules/.bin/typedoc",
@@ -117,6 +127,7 @@
   },
   "homepage": "https://github.com/phun-ky/defaults-deep#readme",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
     "@release-it/conventional-changelog": "^12.0.2",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^1.0.0",
@@ -129,6 +140,7 @@
     "global-jsdom": "^29.0.0",
     "jsdom": "^29.0.2",
     "prettier": "^3.8.0",
+    "publint": "^0.3.25",
     "putout": "^42.0.13",
     "quibble": "^0.9.1",
     "release-it": "^21.1.1",
@@ -165,6 +177,6 @@
     }
   },
   "dependencies": {
-    "@phun-ky/typeof": "^3.0.0"
+    "@phun-ky/typeof": "^3.0.9"
   }
 }

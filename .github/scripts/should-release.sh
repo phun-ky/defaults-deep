@@ -11,15 +11,14 @@
 # $GITHUB_OUTPUT.
 set -euo pipefail
 
-# Everything that ends up in the tarball, or shapes the bundle. The lockfile
-# counts because @phun-ky/typeof is bundled into dist. Tests are not published.
+# Everything that ends up in the tarball, or shapes the build. Dependencies are
+# external, so the lockfile doesn't change the build. Tests are not published.
 published_files=(
   src
   ':(exclude,glob)src/**/__tests__/**'
   rollup.config.js
   tsconfig.json
   package.json
-  package-lock.json
   README.md
   LICENSE-MIT
   LICENSE-ISC
