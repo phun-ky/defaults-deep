@@ -47,6 +47,10 @@
 
 * 🐛 Mitigate prototype pollution vulnerability ([807dba9](https://github.com/phun-ky/defaults-deep/commit/807dba930f8718f9126cad59d949b8fd3539b059))
 
+### Security
+
+* Fixes [GHSA-mj3g-7xcc-x4vh](https://github.com/phun-ky/defaults-deep/security/advisories/GHSA-mj3g-7xcc-x4vh) (CVE-2026-54737, high): prototype pollution through `__proto__` keys in merged input. Every release before 2.0.5 is affected. Reported by [supeRdaem](https://github.com/supeRdaem).
+
 ## [2.0.4](https://github.com/phun-ky/defaults-deep/compare/2.0.3...2.0.4) (2026-06-04)
 
 ### Tasks
