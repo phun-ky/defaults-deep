@@ -5,21 +5,30 @@
   "type": "module",
   "main": "./dist/defaults-deep.cjs",
   "module": "./dist/defaults-deep.js",
-  "types": "./dist/defaults-deep.d.ts",
+  "types": "./dist/defaults-deep.d.cts",
   "files": [
-    "/dist/defaults-deep.js",
-    "/dist/defaults-deep.js.map",
-    "/dist/defaults-deep.cjs",
-    "/dist/defaults-deep.cjs.map",
-    "/dist/defaults-deep.d.ts"
+    "dist",
+    "src",
+    "!src/**/__tests__",
+    "CHANGELOG.md",
+    "LICENSE-MIT",
+    "LICENSE-ISC"
   ],
   "exports": {
     ".": {
-      "types": "./dist/defaults-deep.d.ts",
-      "import": "./dist/defaults-deep.js",
-      "require": "./dist/defaults-deep.cjs"
-    }
+      "import": {
+        "types": "./dist/defaults-deep.d.ts",
+        "default": "./dist/defaults-deep.js"
+      },
+      "require": {
+        "types": "./dist/defaults-deep.d.cts",
+        "default": "./dist/defaults-deep.cjs"
+      }
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
   },
+  "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run rollup",
     "clean": "rm -rf dist dts",
@@ -165,6 +174,6 @@
     }
   },
   "dependencies": {
-    "@phun-ky/typeof": "^3.0.0"
+    "@phun-ky/typeof": "^3.0.9"
   }
 }

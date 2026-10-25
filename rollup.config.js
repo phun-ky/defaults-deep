@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unused-modules */
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
 import ts from 'rollup-plugin-typescript2';
@@ -50,9 +49,28 @@ const banner = `/**
 * PERFORMANCE OF THIS SOFTWARE.
 */`;
 
+// Runtime dependencies stay external: consumers install them from npm
+const external = Object.keys(pack.dependencies ?? {});
+
+// The CommonJS build sets module.exports to the function, so its types must use
+// `export =` rather than `export default`
+const cjsTypes = {
+  name: 'cjs-types',
+  renderChunk(code) {
+    const pattern = /^export \{ (\w+) as default \};$/m;
+
+    if (!pattern.test(code)) {
+      throw new Error('cjs-types: no default export found in the declarations');
+    }
+
+    return code.replace(pattern, 'export = $1;');
+  }
+};
+
 export default [
   {
     input: 'src/main.ts',
+    external,
     output: [
       {
         file: './dist/defaults-deep.js',
@@ -69,7 +87,6 @@ export default [
       }
     ],
     plugins: [
-      nodeResolve(),
       ts({
         useTsconfigDeclarationDir: true,
         sourceMap: true,
@@ -80,7 +97,16 @@ export default [
   },
   {
     input: './dts/main.d.ts',
-    output: [{ file: './dist/defaults-deep.d.ts', format: 'es' }],
+    external,
+    output: [
+      { file: './dist/defaults-deep.d.ts', format: 'es' },
+      // CommonJS types for the require condition
+      {
+        file: './dist/defaults-deep.d.cts',
+        format: 'es',
+        plugins: [cjsTypes]
+      }
+    ],
     plugins: [dts()]
   }
 ];
