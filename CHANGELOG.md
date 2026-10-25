@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.0.9](https://github.com/phun-ky/defaults-deep/compare/2.0.8...2.0.9) (2026-10-25)
+
+### Tasks
+
+* 🤖 lint everything, typecheck strictly, drop unused tooling ([cc50f38](https://github.com/phun-ky/defaults-deep/commit/cc50f38a388a4a9442d0754b8feb22fb2a753644)), closes [#97](https://github.com/phun-ky/defaults-deep/issues/97) [#102](https://github.com/phun-ky/defaults-deep/issues/102), references [#110](https://github.com/phun-ky/defaults-deep/issues/110) [#98](https://github.com/phun-ky/defaults-deep/issues/98) [#99](https://github.com/phun-ky/defaults-deep/issues/99) [#101](https://github.com/phun-ky/defaults-deep/issues/101)
+* 🤖 raise coverage thresholds to the new floor ([c740289](https://github.com/phun-ky/defaults-deep/commit/c740289452c5915f415b59822ae35a0afa87948a))
+
+### Documentation
+
+* ✏️ describe mergeWith as internal in the API comment ([49db942](https://github.com/phun-ky/defaults-deep/commit/49db942ca1a2af576adec778b4cafe6c5e89cd5a))
+
+### Bug
+
+* 🐛 give keys that share a source object their own merged objects ([b2de955](https://github.com/phun-ky/defaults-deep/commit/b2de955f8a6d1fedab0171b08564744736101278)), closes [#110](https://github.com/phun-ky/defaults-deep/issues/110)
+
 ## [2.0.8](https://github.com/phun-ky/defaults-deep/compare/2.0.7...2.0.8) (2026-10-25)
 
 ### Tasks
