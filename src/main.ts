@@ -57,7 +57,7 @@ import { mergeWith } from './utils/merge-with';
 const defaultsDeep = (...args: unknown[]) => {
   const output: Record<PropertyKey, unknown> = {};
 
-  for (const item of args.slice().reverse()) {
+  for (const item of args.toReversed()) {
     if (!isObjectLoose(item)) continue;
 
     mergeWith(output, item, (_o: any, s: any[] | undefined) =>
